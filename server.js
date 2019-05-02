@@ -1,17 +1,18 @@
-const path = require("path");
-const express = require('express');
-const connection = require('./db/connection');
-const app = express();
-const PORT = process.env.PORT || 3000;
+var express = require("express");
+var apiRoutes = require("./routes/apiroutes");
+var htmlRoutes = require("./routes/htmlroutes");
 
-// set up our middleware to handle incoming POST data
+var app = express();
+var PORT = process.env.PORT || 3000;
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
-require("dotenv").config();
+app.use(apiRoutes);
+app.use(htmlRoutes);
 
-// set up our routes
-app.get('/', function(req, res) {
-  // send home.html when user hits "root"
-  res.sendFile(path.join(__dirname, './html/home.html'));
+app.listen(PORT, () => {
+  console.log("You done did it on: " + PORT)
 });
