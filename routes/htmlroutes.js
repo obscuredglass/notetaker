@@ -1,18 +1,17 @@
-var express = require("express");
-var apiRoutes = require("./routes/apiroutes");
-var htmlRoutes = require("./routes/htmlroutes");
+var router = require("express").Router();
+var path = require("path");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
-
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-
-app.use(apiRoutes);
-app.use(htmlRoutes);
-
-app.listen(PORT, () => {
-  console.log("You done did it on: " + PORT)
+router.get("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
+
+router.get("/index", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+router.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/404.html"));
+});
+
+
+module.exports = router;
