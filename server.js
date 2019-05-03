@@ -14,5 +14,5 @@ app.use(apiRoutes);
 app.use(htmlRoutes);
 
 app.listen(PORT, () => {
-  console.log("You done did it on: " + PORT)
+  console.log("Your server is on: " + PORT)
 });
