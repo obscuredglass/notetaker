@@ -1,7 +1,7 @@
 // variables
 
 var $nShow = $("#nShow");
-var $newDisplay = $("#newDisplay");
+var $newerDisplay = $("#newerDisplay");
 
 
 
