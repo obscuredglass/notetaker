@@ -9,9 +9,9 @@ router.get("/index", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-router.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/404.html"));
-});
+// router.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "../public/404.html"));
+// });
 
 
 module.exports = router;
