@@ -34,7 +34,7 @@ const noteQuery = () => {
 const submitOnClick = (event) => {
   event.preventDefault();
 
-  var newestData = {
+  var newData = {
     title: $("#nTitle").val().trim(),
     body: $("#nBody").val().trim()
   }
@@ -43,7 +43,7 @@ const submitOnClick = (event) => {
   $.ajax({
     url: "/api/notes",
     method: "POST",
-    data: newestData
+    data: newData
   }).then((data) => {
     if (data) {
       alert("Note added");
